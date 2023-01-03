@@ -1,0 +1,11 @@
+.form-control{
+    display: inline;
+    width: 400px;
+}
+.thumb{
+    background-color: blueviolet;
+}
+
+.u-data{
+    display: none;
+}

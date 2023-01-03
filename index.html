@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <title>Youtube</title>
+</head>
+<body>
+        <div class="container">
+           <label for=""> <h1>Youtube</h1></label>
+           <input class="form-control" type="text" placeholder="search">
+            <button>search</button>
+            <button class="upload">upload</button>
+            <button>library</button>
+        </div>
+        <div class="v-data container">
+            <div class="row">
+                <div class="col-lg-3 thumb">
+                    <img src="https://i.ytimg.com/vi/34Na4j8AVgA/default.jpg" alt="">
+                    <h5>title</h5>
+                    <p>discription</p>
+                </div>
+                <div class="col-lg-3 thumb ">
+                    <img src="https://i.ytimg.com/vi/XXYlFuWEuKI/default.jpg" alt="">
+                    <h5>title</h5>
+                    <p>discription</p>
+                </div>
+                <div class="col-lg-3 thumb ">
+                    <img src="https://i.ytimg.com/vi/qFLhGq0060w/default.jpg" alt="">
+                    <h5>title</h5>
+                    <p>discription</p>
+                </div>
+                <div class="thumb col-lg-3">
+                    <img src="https://i.ytimg.com/vi/bDHD1ueL4a4/default.jpg" alt="">
+                    <h5>title</h5>
+                     <p>discription</p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="container">
+            <label class="col-3" for="">Title</label>
+            <input class="form-control" type="text" placeholder="Title"><br>
+            <label class="col-3" for="">Discription</label>
+            <input class="form-control" type="text" placeholder="Discription"><br>
+            <button class="upload-in-upload">upload</button>
+        </div> -->
+<!-- `````````````````````````````````````````````````````````````````````````````````````````````````````````````````` -->
+        <div class="u-data container">
+            <div class="left">
+                <input class="form-control" id="textfield" name="" id="" type="text">
+                <br>
+                <button onclick="post_submission(this)">Post</button>
+                <!-- <br> -->
+                <button onclick="save_submission(this)">Save</button>
+            </div>
+            
+            <div class="right" id="right">
+                
+            </div>
+        </div>
+        <p class="error-data"></p>
+</body>
+<script src="script.js"></script>
+</html>
