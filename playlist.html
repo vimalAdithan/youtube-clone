@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <title>Youtube</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="45"
+            height="30"
+            fill="red"
+            class="bi bi-youtube"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"
+            />
+          </svg>
+          <b><a class="navbar-brand" href="/">YouTube</a></b>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="./playlist.html"
+                >Playlist</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./channel.html">Channel</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <section id="add_form" style="display: none">
+      <div style="margin: 0% 5%">
+        <div style="text-align: center; color: rgb(180, 14, 14)" >
+          <h1>ADD VIDEO</h1>
+        </div>
+        <form class="row g-3" id="full_form">
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Image url</label>
+            <input required type="text" class="form-control" id="url" onfocus="this.value=''"/>
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Title</label>
+            <input required type="text" class="form-control" id="Title"onfocus="this.value=''" />
+          </div>
+          <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Description</label>
+            <input required type="text" class="form-control" id="Description"onfocus="this.value=''" />
+          </div>
+          <div class="col-md-6">
+            <label for="inputAddress2" class="form-label">Channel Title</label>
+            <input required type="text" class="form-control" id="Channel"onfocus="this.value=''" />
+          </div>
+          <div>
+            <button type="submit" class="btn btn-success" style="width: 100%">
+              ADD
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section>
+      <button
+        style="width: 90%; margin: 5px 5%"
+        type="button"
+        class="btn btn-success"
+        onclick="addform()"
+        id="addvideo"
+      >
+        Add Video
+      </button>
+
+      <div class="playlist"></div>
+    </section>
+  </body>
+  <script>
+    const addform = () => {
+      document.querySelector("#add_form").style.display = "block";
+      document.querySelector("#addvideo").style.display = "none";
+    };
+    const data = [
+      {
+        id: "PLOU2XLYxmsIJ9ktgk5CnbtQB332XfWQef",
+        url: "https://i.ytimg.com/vi/kzKFuHk8ovk/sddefault.jpg",
+        title: "Architecting with Google Cloud",
+        description:
+          "Catch a glimpse of how to get started with Google Cloud Tech and what its technology can do for your developer projects.",
+        channelTitle: "Google Developers",
+      },
+      {
+        id: "PLOU2XLYxmsIIQye6fWbHmf9HhRKs0z9r7",
+        url: "https://i.ytimg.com/vi/br-ZiLYKaI0/hqdefault.jpg",
+        title: "Mobile Development with Google",
+        description:
+          "Take your mobile app to the next level with tutorials and tips on app customization, architectures, development, and more!",
+        channelTitle: "Google Developers",
+      },
+      {
+        id: "PLOU2XLYxmsIIQu60hsxQdxDH4lcZOMRSS",
+        url: "https://i.ytimg.com/vi/P3q35Z8YKSY/sddefault.jpg",
+        title: "Hear Google Developer Stories",
+        description:
+          "See real stories about how businesses are using Google technology, from Google Maps Platform to Android and more, to improve their customers' lives.",
+        channelTitle: "Google Developers",
+      },
+    ];
+
+    var form_select = document.querySelector("#full_form");
+    form_select.addEventListener("submit", (e) => {
+      const generateid = () => {
+        let id = "";
+        for (let i = 0; i <= 3; i++) {
+          const rand = Math.round(Math.random() * 9);
+          id = id + rand;
+        }
+        return id;
+      };
+      e.preventDefault();
+      var id = generateid();
+      var url = document.querySelector("#url").value;
+      var Title = document.querySelector("#Title").value;
+      var Description = document.querySelector("#Description").value;
+      var Channel = document.querySelector("#Channel").value;
+      var ele = { id, url, Title, Description, Channel };
+      var card = document.querySelector(".playlist");
+      card.insertAdjacentHTML(
+        "beforeend",
+        `<div class="itemcrd">
+            <img src=${ele.url} alt="" />
+            <div><p><b>${ele.title}</b></p>
+            <p>${ele.description}</p>
+            <a style="text-decoration: none;color:black;" href="./channel.html" ><b>${ele.channelTitle}</b></a>
+            </div>`
+      );
+      const addform = () => {
+      document.querySelector("#add_form").style.display = "none";
+      document.querySelector("#addvideo").style.display = "block";
+    };
+    addform()
+    });
+
+    var card = document.querySelector(".playlist");
+    data.map((itm) => {
+      card.insertAdjacentHTML(
+        "beforeend",
+        `<div class="itemcrd">
+            <img src=${itm.url} alt="" />
+            <div><p><b>${itm.title}</b></p>
+            <p>${itm.description}</p>
+            <a style="text-decoration: none;color:black;" href="./channel.html" ><b>${itm.channelTitle}</b></a>
+            </div>`
+      );
+    });
+  </script>
+</html>

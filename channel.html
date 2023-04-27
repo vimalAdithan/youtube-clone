@@ -57,7 +57,7 @@
               <a class="nav-link active" aria-current="page" href="./playlist.html">Playlist</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="./channel.html">Channel</a>
+              <a class="nav-link active">Channel</a>
             </li>
           </ul>
           <form class="d-flex">
@@ -74,16 +74,43 @@
         </div>
       </div>
     </nav>
-    <div class="playlist"></div>
-  </body>
+    <div class="channellist"></div>
   <script>
-    var url =
+     var url =
       "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&maxResults=25&key=AIzaSyAhcyvZV_psiX6jOPpTRwr5JKeKBrL43gU";
-    const load = async () => {
-      var link = await fetch(url);
+    
+    var url1 =
+      "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&id=UC_x5XG1OV2P6uZZ5FSM9Ttw&key=AIzaSyAhcyvZV_psiX6jOPpTRwr5JKeKBrL43gU";
+    const load1 = async () => {
+        var link = await fetch(url);
       var res = await link.json();
       var data = res.items;
-      var card = document.querySelector(".playlist");
+      var card = document.querySelector(".channellist");
+      var link1 = await fetch(url1);
+      var res1 = await link1.json();
+      var data1 = res1.items;
+      console.log(data1);
+      card.insertAdjacentHTML(
+        "beforebegin",
+        `<div class="channel_info">
+    <div style="display: flex;align-items: center;">
+      <div>
+        <img
+        src=${data1[0].snippet.thumbnails.default.url}
+        alt="profile picture"
+      />
+      </div>
+      <div>
+      <p><b>${data1[0].snippet.title}</b></p>
+      <p>${data1[0].statistics.subscriberCount} subscribers ${data1[0].statistics.videoCount} videos</p>
+      </div>
+      </div>
+      <div>
+      <button type="button" class="btn btn-dark" style="border-radius: 18px;">Subscribe</button>
+      </div>
+    </div>
+  `
+      );
       data.map((itm) => {
         card.insertAdjacentHTML(
           "beforeend",
@@ -91,11 +118,12 @@
             <img src=${itm.snippet.thumbnails.standard.url} alt="" />
             <div><p><b>${itm.snippet.title}</b></p>
             <p>${itm.snippet.description}</p>
-            <a style="text-decoration: none;color:black;" href="./channel.html" ><b>${itm.snippet.channelTitle}</b></a>
+            <p><b>${itm.snippet.channelTitle}</b></p>
             </div>`
         );
       });
     };
-    load()
+    load1();
   </script>
+</body>
 </html>
